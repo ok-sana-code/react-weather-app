@@ -7,11 +7,21 @@ export default function App() {
         <Weather />
         <footer>
           This project was coded by Oksana Shvets and is{" "}
-          <a href="https://github.com/ok-sana-code/react-weather-app">
+          <a
+            href="https://github.com/ok-sana-code/react-weather-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             open-sourced on GitHub
           </a>{" "}
           and hosted on{" "}
-          <a href="https://delightful-chebakia-49d210.netlify.app/">Netlify</a>
+          <a
+            href="https://delightful-chebakia-49d210.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Netlify
+          </a>
         </footer>
       </div>
     </div>
