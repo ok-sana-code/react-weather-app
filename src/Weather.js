@@ -1,24 +1,25 @@
 import React from "react";
+import FormattedDate from "./FormattedDate"
 import "./Weather.css";
 import axios from "axios";
 import { useState } from "react";
 
 export default function Weather(props) {
-  const [weather, setWeather] = useState({redy:false});
-
+  const [weather, setWeather] = useState({ redy: false });
 
   function DisplayWeather(response) {
     setWeather({
-      redy:true,
-      name:response.data.name,
+      redy: true,
+      name: response.data.name,
+      date: new Date(response.data.dt*1000),
       icon: response.data.weather[0].icon,
-      iconUrl:"https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
     });
-       console.log(response.data.weather[0].icon);
+ 
   }
   if (weather.redy) {
     return (
@@ -44,7 +45,7 @@ export default function Weather(props) {
         </form>
         <h1>{weather.name}</h1>
         <ul>
-          <li>Monday 10:41</li>
+          <li><FormattedDate date={weather.date}/></li>
           <li className="text-capitalize">{weather.description}</li>
         </ul>
         <div className="row mt-3">
@@ -75,7 +76,6 @@ export default function Weather(props) {
     );
   } else {
     const ApiKey = "78d33d1c0b3d1c72b0e0425b1537a903";
-    let city = "Lviv";
     let Url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${ApiKey}&units=metric`;
     axios.get(Url).then(DisplayWeather);
     return "Loading...";
