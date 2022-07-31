@@ -1,9 +1,16 @@
-.App{
-    max-width: 600px;
-    margin: 30px auto;
-    font-family: arial, sans-serif;
+.App {
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: arial, sans-serif;
 }
 .App footer {
-    font-size: 11px;
-    margin: 10px 0;
+  font-size: 11px;
+  margin: 10px 0;
+}
+.App a {
+  color: #9771f3;
+  text-decoration: none;
+}
+.App a:hover {
+  text-decoration: underline;
 }

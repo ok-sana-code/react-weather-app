@@ -1,10 +1,23 @@
 .Weather {
+  background-color: #F9F7FE;
   border: 1px solid #e7e7e7;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
   color: rgb(135, 135, 135);
 }
+
+.Weather .btn{
+  background-color: #9771F3;
+  border: 1px solid #9771F3;
+}
+
+.Weather .btn:hover{
+background-color:#FFFFFF;
+color: #9771F3;
+}
+
 .Weather h1 {
+  color: #9771F3;
   font-size: 24px;
   font-weight: 100;
   margin: 20px 0 0;
