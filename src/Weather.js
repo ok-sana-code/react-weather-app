@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 import axios from "axios";
 import { useState } from "react";
@@ -39,7 +40,7 @@ function HandleCityChange(event){
 
   if (weather.redy) {
     return (
-      <div className="Weather">
+      <div className="Weather shadow">
         <form onSubmit={HadleSubmit}>
           <div className="row">
             <div className="col-9">
@@ -61,6 +62,7 @@ function HandleCityChange(event){
           </div>
         </form>
         <WeatherInfo date={weather} />
+        <WeatherForecast/>
       </div>
     );
   } else {
