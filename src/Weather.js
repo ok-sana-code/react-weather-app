@@ -10,8 +10,10 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function DisplayWeather(response) {
+    
     setWeather({
       redy: true,
+      coordinates: response.data.coord,
       name: response.data.name,
       date: new Date(response.data.dt * 1000),
       icon: response.data.weather[0].icon,
@@ -23,8 +25,8 @@ export default function Weather(props) {
     });
   }
 function search(){
-     const ApiKey = "78d33d1c0b3d1c72b0e0425b1537a903";
-     let Url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${ApiKey}&units=metric`;
+     const apiKey = "78d33d1c0b3d1c72b0e0425b1537a903";
+     let Url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
      axios.get(Url).then(DisplayWeather);
 }
 function HadleSubmit(event){
@@ -62,7 +64,7 @@ function HandleCityChange(event){
           </div>
         </form>
         <WeatherInfo date={weather} />
-        <WeatherForecast/>
+        <WeatherForecast coordinates= {weather.coordinates}/>
       </div>
     );
   } else {
